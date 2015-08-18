@@ -1,0 +1,14 @@
+<h3>Please Sign up to Share Your Sightings.</h3>
+<form name="createUserForm" ng-submit="ctrl.createUser()">
+    <fieldset>
+        <input required name="email" type="email"
+            ng-model="email"
+            id="email" placeholder="email">
+        <input required name="password" type="password"
+            ng-model="password"
+            id="password" placeholder="password&hellip;">
+        <!-- submit button: pressing return submits -->
+        <!-- <input hidden type="submit">  -->
+        <input type="submit" value='sign up!'>
+    </fieldset>
+</form>
