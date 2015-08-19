@@ -38,8 +38,11 @@
         templateUrl: 'app/lists/my-list.html',})
       .state('new-sighting', {
         url: '/new-sighting',
-        templateUrl: 'app/sighting/new-sighting.html',});
-      // .state('sightings:sighting');
+        templateUrl: 'app/sightings/new-sighting.html',})
+      .state('sighting',{
+        url:'/sighting',
+        templateUrl:'app/sightings/sighting.html'
+   });
 
     $urlRouterProvider.otherwise('/');
   }

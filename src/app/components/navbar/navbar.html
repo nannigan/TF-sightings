@@ -1,24 +1,16 @@
 <nav class="navbar">
-  <a href="#">Sightings</a>
-
+  <a ui-sref="home">Sightings</a>
   <ul>
     <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
-
-    <li ng-class="{active: $state.includes('sign-up)}"><a ui-sref="sign-up">Sign Up<br>(will need logic...)</a></li>
-
-    <li ng-class="{active: $state.includes('login')}"><a ui-sref="login">Log In<br>(will need logic...)</a></li>
-
-    <li ng-class="{active: $state.includes('log-out')}"><a ui-sref="log-out">Log Out<br>(will need logic...)</a></li>
-    <li ng-class="{active: $state.includes('my-list')}"><a ui-sref="my-list">My List<br>(will need logic...)</a></li>
-    <li ng-class="{active: $state.includes('our-list')}"><a ui-sref="our-list">Our List<br>(will need logic...)</a></li>
-
-
-
+    <li ng-class="{active: $state.includes('sign-up)}"><a ui-sref="sign-up">Sign Up</a></li>
+    <li ng-class="{active: $state.includes('login')}"><a ui-sref="login">Log In</a></li>
+    <li ng-class="{active: $state.includes('log-out')}"><a ui-sref="log-out">Log Out</a></li>
+    <li ng-class="{active: $state.includes('my-list')}"><a ui-sref="my-list">My Sightings</a></li>
+    <li ng-class="{active: $state.includes('our-list')}"><a ui-sref="our-list">Our Sightings</a></li>
+    <li ng-class="{active: $state.includes('new-sighting')}"><a ui-sref="new-sighting">New Sighting</a></li>
+    <li ng-class="{active: $state.includes('sighting')}"><a ui-sref="sighting">Sighting page loads on submit of new sighting</a></li>
     <!--enhancement <li><a ng-href="#">New Sightings</a></li> -->
     <li><a ng-href="#">|  Twitter</a></li>
     <li><a ng-href="#">Facebook</a></li>
-
   </ul>
-
-
 </nav>

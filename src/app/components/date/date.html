@@ -1,0 +1,10 @@
+
+<!-- pattern from sal calendar directive -->
+
+    <select ng-model="selectedMonth">
+        <option value="{{$index}}" ng-repeat="month in monthsOfYear" ng-selected="$index === selectedMonth">{{month}}</option>
+    </select>
+
+    <select ng-model="selectedYear" ng-options="year for year in yearsRange"></select>
+
+    <button ng-click="selectToday()">Today</button>
