@@ -2,19 +2,23 @@
   <a href="#">Sightings</a>
 
   <ul>
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">Sign Up</a></li>
-    <li><a ng-href="#">Log in</a></li>
-    <li><a ng-href="#">Log out</a></li>
-    <li><a ng-href="#">My List</a></li>
-    <li><a ng-href="#">Our List</a></li>
-    <li><a ng-href="#">New Sightings</a></li>
-    <li>|  <a ng-href="#">Twitter</a></li>
+    <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
+
+    <li ng-class="{active: $state.includes('sign-up)}"><a ui-sref="sign-up">Sign Up<br>(will need logic...)</a></li>
+
+    <li ng-class="{active: $state.includes('login')}"><a ui-sref="login">Log In<br>(will need logic...)</a></li>
+
+    <li ng-class="{active: $state.includes('log-out')}"><a ui-sref="log-out">Log Out<br>(will need logic...)</a></li>
+    <li ng-class="{active: $state.includes('my-list')}"><a ui-sref="my-list">My List<br>(will need logic...)</a></li>
+    <li ng-class="{active: $state.includes('our-list')}"><a ui-sref="our-list">Our List<br>(will need logic...)</a></li>
+
+
+
+    <!--enhancement <li><a ng-href="#">New Sightings</a></li> -->
+    <li><a ng-href="#">|  Twitter</a></li>
     <li><a ng-href="#">Facebook</a></li>
 
   </ul>
 
-<!--   <ul class="acme-navbar-text">
-    <li>Application was created {{ vm.relativeDate }}.</li>
-  </ul> -->
+
 </nav>
