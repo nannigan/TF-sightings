@@ -32,10 +32,10 @@
         templateUrl: 'app/auth/register.html'})
       .state('our-list', {
         url: '/our-list',
-        templateUrl: 'app/lists/our-list.html',})
+        templateUrl: 'app/sightings-list/our-sightings-list.html',})
       .state('my-list', {
         url: '/my-list',
-        templateUrl: 'app/lists/my-list.html',})
+        templateUrl: 'app/sightings-list/my-sightings-list.html',})
       .state('new-sighting', {
         url: '/new-sighting',
         templateUrl: 'app/sightings/new-sighting.html',})
