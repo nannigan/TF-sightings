@@ -38,10 +38,10 @@
         templateUrl: 'app/sightings-list/my-sightings-list.html',})
       .state('new-sighting', {
         url: '/new-sighting',
-        templateUrl: 'app/sightings/new-sighting.html',})
+        templateUrl: 'app/sighting/new-sighting.html',})
       .state('sighting',{
         url:'/sighting',
-        templateUrl:'app/sightings/sighting.html'
+        templateUrl:'app/sighting/sighting.html'
    });
 
     $urlRouterProvider.otherwise('/');

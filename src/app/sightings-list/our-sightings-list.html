@@ -1,4 +1,20 @@
 <div class='container'>
   <h3> Neighborhood Sightings</h3>
-<sightings-list ></sightings-list>
+    <table class="table table-hover">
+
+    <caption>Our Neighborhood Sightings</caption>
+
+       <tr>
+        <th>Critter</th> <th>When Seen</th><th>Where Seen</th><th>Photo Link</th></th><th>Observer</th>
+      </tr>
+     <tbody>
+      <tr sightings-list sightingsData='vm.sightingsData'  ng-repeat='sighting in sightingsData track by $index'>
+
+      </tr>
+    </tbody>
+  </table>
+  <div sightings-list>
+
+      </div>
+
 </div>
