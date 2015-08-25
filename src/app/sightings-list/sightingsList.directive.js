@@ -18,7 +18,8 @@
           },
           controller: SightingsListController,
           controllerAs: 'vm',
-          bindToController: true
+          bindToController: true,
+          transclude: true
           };
       console.log("before 'return directive'")//logs out before 'return directive'
       return directive;
@@ -27,9 +28,11 @@
         var vm = this;
         console.log('hellooooo controller');
         vm.something = "something is a string";
+        console.log(vm.something);
 
-        vm.sightingsData = sightingsData;
-        console.log(vm.sightingsData[0].critter);
+
+        vm.Data = sightingsData;
+        console.log(vm.Data[0].critter);
 
     }// controller
   }

@@ -25,8 +25,13 @@ a {
   padding-left: 15px;
   padding-right: 15px;
 }
-
-
+// for visualzing dynamically created table structure or not
+.testing{
+  border: 1px dotted red;
+}
+tr td.testing{
+  border: 1px solid purple;
+}
 
 .navbar {
   position: relative;
