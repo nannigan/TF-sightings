@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('sightings', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router']);
+    .module('sightings', ['ui.router']);
+    // just showing currently using dependencies
+    //.module('sightings', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','sightingsListData']);
 
 })();

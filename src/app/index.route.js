@@ -30,12 +30,21 @@
       .state('sign-up', {
         url: '/sign-up',
         templateUrl: 'app/auth/register.html'})
+
+
       .state('our-list', {
         url: '/our-list',
-        templateUrl: 'app/sightings-list/our-sightings-list.html',})
+        templateUrl: 'app/sightings-list/our-sightings-list.html',
+        resolve: {
+            sightingsData: function(SightingsListData){
+              return SightingsListData.getSightingsData();
+            }
+          }
+      })
       .state('my-list', {
         url: '/my-list',
         templateUrl: 'app/sightings-list/my-sightings-list.html',})
+
       .state('new-sighting', {
         url: '/new-sighting',
         templateUrl: 'app/sighting/new-sighting.html',})
