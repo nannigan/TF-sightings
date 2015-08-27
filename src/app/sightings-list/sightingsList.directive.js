@@ -12,7 +12,7 @@
 
     var directive = {
           restrict: 'EA', // using attribute since am using in table
-          templateUrl: 'app/sightings-list/a-sighting.html',
+          templateUrl: 'app/sightings-list/sightings-list.template.html',
           scope: {
             sightingsData: '='
           },
@@ -22,11 +22,18 @@
           };
       return directive;
             /** @ngInject */
-    function SightingsListController(sightingsData) {
+    function SightingsListController(sightingsDataFactory, $state) {
         var vm = this;
 
-        vm.sightingsData = sightingsData;
-        console.log(vm.sightingsData);
+        vm.sightingsData = sightingsDataFactory;
+        // vm.mylist = $state.current.name;
+        if ($state.current.name == 'my-list')
+         { vm.myList = $state.current.name;}
+
+
+        console.log($state.current.name);
+        console.log (vm.myList);
+        //gets the 'my-list' value from the
 
     }// controller
   }

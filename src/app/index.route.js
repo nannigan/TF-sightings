@@ -35,11 +35,11 @@
       .state('our-list', {
         url: '/our-list',
         templateUrl: 'app/sightings-list/our-sightings-list.html',
-        resolve: {
-            sightingsData: function(SightingsListData){
-              return SightingsListData.getSightingsData();
-            }
-          }
+        // resolve: {
+        //     sightingsData: function(SightingsListData){
+        //       return SightingsListData.getSightingsData();
+        //     }
+        //   }
       })
       .state('my-list', {
         url: '/my-list',
