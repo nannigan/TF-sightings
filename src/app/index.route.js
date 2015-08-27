@@ -48,8 +48,8 @@
       .state('new-sighting', {
         url: '/new-sighting',
         templateUrl: 'app/sighting/new-sighting.html',})
-      .state('sighting',{
-        url:'/sighting',
+      .state('sighting:id',{
+        url:'/sighting/id',
         templateUrl:'app/sighting/sighting.html'
    });
 

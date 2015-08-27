@@ -1,4 +1,4 @@
-// use moment.js to harvest datetime
+
 
 (function() {
   'use strict';
@@ -9,11 +9,11 @@
 
   /** @ngInject */
   function sighting() {
-//enhancement  moment-- could give a choice now or when?
+//enhancement  moment.js -- could give a choice of 'just now' or specific choice from timecalendar widget?
 
 
   return{
-    restrict: E,
+    restrict: AE,
 
   }
     // var directive = {

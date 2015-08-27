@@ -3,7 +3,8 @@
 
   angular
   .module('sightings')
-  .directive('sightingsList', sightingsList);
+  .directive('sightingsList', sightingsList)
+
 
 
 
@@ -26,17 +27,21 @@
         var vm = this;
 
         vm.sightingsData = sightingsDataFactory;
-        // vm.mylist = $state.current.name;
+
         if ($state.current.name == 'my-list')
          { vm.myList = $state.current.name;}
+       //filter
+
+       if ($state.current.url == '/')
+        {vm.sightingsData = vm.sightingsData.slice(0,2)}
+      //filter
 
 
-        console.log($state.current.name);
-        console.log (vm.myList);
-        //gets the 'my-list' value from the
+
 
     }// controller
-  }
+  };
+
 })();
 
 

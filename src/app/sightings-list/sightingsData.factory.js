@@ -40,7 +40,7 @@
         photo: 'n',
         details: 'big kitty'
         }];
-        console.log(sightingsData);
+
         return sightingsData;
        }
 
