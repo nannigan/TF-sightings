@@ -6,10 +6,23 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
-    var vm = this;
+  function MainController($state,sightingsDataFactory) {
+    var main = this;
 
-    vm.message = 'hello worldly folk!';
+    main.message = 'hello worldly folk!';
+    var subset = function(data,x,y){
+      data.splice(x,y);
+    };
+    main.sightingsData = sightingsDataFactory;
+    console.log(main.sightingsData);
+    // main.sightingsData = subset(app.sightingsData,0,2);
+
+     //     { vm.myList = $state.current.name;}
+     //   //filter
+
+       // if ($state.current.url == '/')
+       //  {vm.sightingsData = vm.sightingsData.slice(0,2)}
+      //filter
 
 
     //$timeout, webDevTec vm.awesomeThings = [];

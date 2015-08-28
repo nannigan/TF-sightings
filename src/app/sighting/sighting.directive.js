@@ -8,7 +8,7 @@
     .directive('sighting', sighting);
 
   /** @ngInject */
-  function sighting() {
+  function sighting(sightingsDataFactory) {
 //enhancement  moment.js -- could give a choice of 'just now' or specific choice from timecalendar widget?
 
 

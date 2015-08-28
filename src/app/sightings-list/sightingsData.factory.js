@@ -14,6 +14,7 @@
         var sightingsData;
        sightingsData = [
         {
+        id: 123,
         critter:'cow',
         user: {id: 1,
                name: 'Suzy Queu'},
@@ -23,6 +24,7 @@
         details: 'foggy afternoon'
         },
         {
+        id: 124,
         critter:'crow',
         user: {id: 2,
                name: 'George L'},
@@ -32,6 +34,7 @@
         details: 'sure was black'
         },
         {
+        id: 125,
         critter:'cougar',
         user: {id: 3,
                name: 'jesse james'},
