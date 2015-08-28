@@ -1,5 +1,5 @@
 <tr  ng-repeat='item in sightingsData'>
-  <td> {{item.critter}}</td> <td> {{item.when}}</td> <td> {{item.where}}</td> <td> <a ui-sref="a-sighting/#">{{item.photo}}</a></td> <td> {{item.details}}</td> <td ng-hide="vm.myList"> {{item.user.name}}</td>
+  <td> {{item.critter}}</td> <td> {{item.when}}</td> <td> {{item.where}}</td> <td> <a ui-sref="a-sighting/#">{{item.photo}}</a></td> <td> {{item.details}}</td> <td ng-hide="mine"> {{item.user.name}}</td>
 </tr>
 
 

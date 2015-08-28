@@ -35,15 +35,16 @@
       .state('our-list', {
         url: '/our-list',
         templateUrl: 'app/sightings-list/our-sightings-list.html',
-        // resolve: {
-        //     sightingsData: function(SightingsListData){
-        //       return SightingsListData.getSightingsData();
-        //     }
-        //   }
+        controller: 'ListController',
+        controllerAs: 'list'
+
       })
       .state('my-list', {
         url: '/my-list',
-        templateUrl: 'app/sightings-list/my-sightings-list.html',})
+        templateUrl: 'app/sightings-list/my-sightings-list.html',
+        controller: 'ListController',
+        controllerAs: 'list'
+      })
 
       .state('new-sighting', {
         url: '/new-sighting',

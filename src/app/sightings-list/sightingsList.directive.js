@@ -16,15 +16,18 @@
           restrict: 'A', // using attribute since am using in table
           templateUrl: 'app/sightings-list/sightings-list.template.html',
           scope: {
-            sightingsData: '='
-          }
-          // controller: SightingsListController,
-          // controllerAs: 'vm',
-          // bindToController: true,
+            sightingsData: '=',
+            mine: '&'
+           },
+
           };
       return directive;
            // /** @ngInject */
-    //function SightingsListController() {
+    // function link(scope, el, attrs, $state) {
+    //   if ($state.current.name == 'my-list')
+    //   { list.myList = true;
+
+    // }};
       //sightingsDataFactory, $state
       //   var vm = this;
 

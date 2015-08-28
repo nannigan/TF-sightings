@@ -10,10 +10,14 @@
     var main = this;
 
     main.message = 'hello worldly folk!';
-    var subset = function(data,x,y){
-      data.splice(x,y);
-    };
+
+
+
+
     main.sightingsData = sightingsDataFactory;
+    main.sightingsData = main.sightingsData.slice(0,2);
+
+
     console.log(main.sightingsData);
     // main.sightingsData = subset(app.sightingsData,0,2);
 
