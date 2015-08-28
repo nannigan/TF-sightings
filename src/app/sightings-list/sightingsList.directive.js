@@ -18,14 +18,25 @@
           scope: {
             sightingsData: '=',
             mine: '&'
-           },
+            },
+          link: link
 
           };
       return directive;
            // /** @ngInject */
-    // function link(scope, el, attrs, $state) {
-    //   if ($state.current.name == 'my-list')
-    //   { list.myList = true;
+    function link(scope, el, attrs) {
+
+      if (window.location.href.indexOf('my-list') > -1){
+        scope.mine = true;
+
+       } else {
+
+        scope.mine = false;
+      }
+
+
+      console.log('from link mine is '+ scope.mine);
+    }
 
     // }};
       //sightingsDataFactory, $state
