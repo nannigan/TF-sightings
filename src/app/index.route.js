@@ -37,13 +37,13 @@
         templateUrl: 'app/sightings-list/our-sightings-list.html',
         controller: 'ListController',
         controllerAs: 'list'
-
       })
       .state('my-list', {
         url: '/my-list',
         templateUrl: 'app/sightings-list/my-sightings-list.html',
-        controller: 'ListController',
-        controllerAs: 'list'
+        controller: 'MyListController',
+        controllerAs: 'my'
+
       })
 
       .state('new-sighting', {
