@@ -3,7 +3,8 @@
   'use strict';
 
   angular
-    .module('sightings');
+    .module('sightings')
+    .constant('FIREBASE_URL', 'https://sightingsinthehood.firebaseio.com/');
     // .constant('malarkey', malarkey)
 
 })();

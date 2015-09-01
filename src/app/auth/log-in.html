@@ -1,20 +1,21 @@
 
-<form name="logInUserForm" >
+<!-- <form name="logInUserForm" ng-submit="login.authWithPassword()"> -->
 
-
+<form name="logInUserForm" ng-submit="console.log('form is submissive')">
 
           <div class="col-sm-8">
-            <label for="email">email</label>
+            <label for="email">login.email</label>
           <input required name="email" type="email"
             ng-model="email"
             id="email" placeholder="email"><br>
-            <label for="password">password</label>
+            <label for="password">login.password</label>
         <input required name="password" type="password"
             ng-model="password"
             id="password" placeholder="password&hellip;"><br>
             <input type="submit" value='log in!'>
-            ng-if shows
-            <input type="submit" value='log out'>
+
+            <!-- <input type="submit" value='log out'> -->
 
 
 </form>
+

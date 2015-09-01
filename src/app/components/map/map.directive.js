@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-
+//check out geofire?
   angular
     .module('sightings')
     .directive('sightingsMap', sightingsMap);

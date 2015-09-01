@@ -29,7 +29,11 @@
 
       .state('sign-up', {
         url: '/sign-up',
-        templateUrl: 'app/auth/register.html'})
+        templateUrl: 'app/auth/register.html',
+        controller: 'RegisterController',
+        controllerAs: 'register'
+
+      })
 
 
       .state('our-list', {
@@ -48,10 +52,13 @@
 
       .state('new-sighting', {
         url: '/new-sighting',
-        templateUrl: 'app/sighting/new-sighting.html',})
-      .state('sighting:id',{
-        url:'/sighting/id',
-        templateUrl:'app/sighting/sighting.html'
+        templateUrl: 'app/sighting/new-sighting.html',
+      })
+      .state('sighting :id',{
+        url:'/sighting',
+        templateUrl:'app/sighting/sighting.html',
+        controller: 'SightingController',
+        controllerAs: 'sight'
    });
 
     $urlRouterProvider.otherwise('/');

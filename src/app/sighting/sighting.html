@@ -4,14 +4,16 @@
       <div class='col-sm-4 col-sm-offset-2'>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">{{}} Seen</h3>
+            <h3 class="panel-title">{{sighting.sight.critter}} Seen</h3>
           </div>
           <div class="panel-body">
-            Where: {{}} Map here
+            Where: {{sighting.sight.where}} Map here
             <br>
-            When: {{}}
+            When: {{sighting.sight}}
             <br>
-            Details: {{}}
+            Details: {{sighting.sight.details}}
+            <br>
+            Observer: {{sighting.sight.user.username}}
           </div>
         </div>
       </div> <!-- col -->

@@ -1,16 +1,22 @@
-(function() {
-  'use strict';
+(function()
+{
+    'use strict';
 
-  angular
-    .module('sightings', ['ui.router'])
-    // just showing currently using dependencies
-    //.module('sightings', [ 'ngMap','ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','sightingsListData']);
-    .controller('AppController', AppController );
-  function AppController() {
-        var app = this;
+    angular.module('sightings', ['ui.router', 'firebase'])
 
-        app.message = 'hello worldly folk!';
+    .factory('fRef', fRef)
 
+    // .controller('AppController', AppController);
 
-      }
+    function fRef(FIREBASE_URL)
+    {
+        return new Firebase(FIREBASE_URL);
+    }
+
+    // function AppController()
+    // {
+    //     var app = this;
+
+    //     app.message = 'hello worldly folk!';
+    // }
 })();

@@ -4,7 +4,7 @@
     <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>
 
 
-    <li ng-if="false" ng-class="{active: $state.includes('log-out')}"><a ui-sref="log-out">Log Out</a></li>
+    <li ng-if="false" ng-class="{active: $state.includes('log-out')}"><a ng-click="vm.unauth()">Log Out</a></li>
     <li ng-class="{active: $state.includes('my-list')}"><a ui-sref="my-list">My Sightings</a></li>
     <li ng-class="{active: $state.includes('our-list')}"><a ui-sref="our-list">Our Sightings</a></li>
     <li ng-class="{active: $state.includes('new-sighting')}"><a ui-sref="new-sighting">New Sighting</a></li>
