@@ -14,18 +14,18 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('login', {
-        url: '/login',
+      .state('log-in', {
+        url: '/log-in',
         templateUrl: 'app/auth/log-in.html',
-        // controller: 'MainController',
-        // controllerAs: 'main'
+        controller: 'LoginController',
+        controllerAs: 'login'
       })
-      .state('log-out', {
-        url: '/log-out',
-        templateUrl: 'app/auth/log-in.html',
-        // controller: 'MainController',
-        // controllerAs: 'main'
-      })
+      // .state('log-out', {
+      //   url: '/log-out',
+      //   templateUrl: 'app/auth/log-in.html',
+      //   // controller: 'MainController',
+      //   // controllerAs: 'main'
+      // })
 
       .state('sign-up', {
         url: '/sign-up',

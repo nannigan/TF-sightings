@@ -6,37 +6,39 @@
 
     /** @ngInject */
 
-    function RegisterController($scope, $firebaseObject, fRef)
+    function RegisterController($scope, $firebaseObject, fRef, $location)
     {
         var register = this;
 
-        register.message = 'hello worldly folk!';
-        var ref = fRef;
+        //var ref = fRef;
+
         register.createUser = function()
         {
             fRef.createUser(
-            {
-                email: register.email,
+            {   email: register.email,
                 password: register.password
             }, function(error, userData)
-            {
-                if (error)
+            {   if (error)
                 {
                     console.log("Error creating user:", error);
                 }
                 else
                 {
-                    console.log("Successfully created user account with uid:", userData.uid);
-                }
+                    console.log("Successfully created user account with uid:", userData.uid)
+
+               }
             });
-        }
-        //form.
+        $location.path('/login');
 
-        // download the data into a local object
-        register.data = $firebaseObject(ref);
+    };
 
 
-    }
+    // download the data into a local object
+    register.data = $firebaseObject(ref);
+    console.log(register.data);
+
+
+}
 
 
 

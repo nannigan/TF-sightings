@@ -1,5 +1,5 @@
 <h3>Please Sign up to Share Your Sightings.</h3>
-<p>{{register.data.Kitten}}</p>
+
 <form name="createUserForm" ng-submit="register.createUser()">
     <fieldset>
         <input required name="email" type="email"
@@ -12,6 +12,6 @@
         <!-- <input hidden type="submit">  -->
         <input type="submit" value='sign up!'>
     </fieldset>
-    <div ng-show="createUserForm.$submitted && createUserForm.$valid">Thank you for signing up! </div>
+    <div ng-if="createUserForm.$submitted && createUserForm.$valid">Thank you for signing up! </div>
 </form>
 
