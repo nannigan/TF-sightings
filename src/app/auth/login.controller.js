@@ -30,12 +30,13 @@
                 {
                     console.log("Authenticated successfully with payload:", authData.uid);
                 }
+
             });
 
         };
 
         $location.path('/');
-        console.log(authData);
+        console.log('yay');
     }
 
 })();
