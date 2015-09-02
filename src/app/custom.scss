@@ -13,3 +13,12 @@ a:hover, a:focus {
     border-bottom: 4px dotted #fff;
 
 }
+
+.navbar ul li a {
+    color: white;
+    position: relative;
+    display: block;
+    padding: 15px;
+    line-height: 20px;
+    cursor: pointer;
+}

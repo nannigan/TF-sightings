@@ -20,12 +20,7 @@
         controller: 'LoginController',
         controllerAs: 'login'
       })
-      // .state('log-out', {
-      //   url: '/log-out',
-      //   templateUrl: 'app/auth/log-in.html',
-      //   // controller: 'MainController',
-      //   // controllerAs: 'main'
-      // })
+
 
       .state('sign-up', {
         url: '/sign-up',
@@ -53,7 +48,11 @@
       .state('new-sighting', {
         url: '/new-sighting',
         templateUrl: 'app/sighting/new-sighting.html',
+        controller: 'SightingController',
+        controllerAs: 'sight'
+
       })
+
       .state('sighting :id',{
         url:'/sighting',
         templateUrl:'app/sighting/sighting.html',

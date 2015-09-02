@@ -22,14 +22,14 @@
 
     /** @ngInject */
     function NavbarController($firebaseAuth, fRef) {
-      var vm = this;
-      vm.unauth = function()
-        {
-            fRef.unauth();
-        }
+      // var vm = this;
+      // vm.unauth = function()
+      //   {
+      //       fRef.$unauth();
+      //   }
 
       // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      //vm.relativeDate = moment(vm.creationDate).fromNow();
     }
   }
 
