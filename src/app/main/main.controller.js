@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($state,sightingsDataFactory) {
+  function MainController($firebaseArray, sightingFactory,FIREBASE_URL_SIGHTINGS) {
     var main = this;
 
     main.message = 'hello worldly folk!';
@@ -14,19 +14,17 @@
 
 
 
-    main.sightingsData = sightingsDataFactory;
-    main.sightingsData = main.sightingsData.slice(0,2);
+  main.sightingArray = sightingFactory.sightingArr();
+   // main.sightingsData = main.sightingsData.slice(0,2);
+
+   var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
+    // create a query for the most recent 5 messages on the server
+    var query = ref.orderByChild("timestamp").limitToLast(5);
+    // the $firebaseArray service properly handles database queries as well
+    main.filteredsightings = $firebaseArray(query);
 
 
-    console.log(main.sightingsData);
-    // main.sightingsData = subset(app.sightingsData,0,2);
-
-     //     { vm.myList = $state.current.name;}
-     //   //filter
-
-       // if ($state.current.url == '/')
-       //  {vm.sightingsData = vm.sightingsData.slice(0,2)}
-      //filter
+    console.log(main.filteredsightings);
 
 
     //$timeout, webDevTec vm.awesomeThings = [];

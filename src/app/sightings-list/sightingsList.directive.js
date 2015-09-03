@@ -9,14 +9,14 @@
 
 
   /** @ngInject */
-  function sightingsList() {
+  function sightingsList(sightingFactory) {
 
 
     var directive = {
           restrict: 'A', // using attribute since am using in table
           templateUrl: 'app/sightings-list/sightings-list.template.html',
           scope: {
-            sightingsData: '=',
+            sightingArr: '&',
             mine: '='
 
             }

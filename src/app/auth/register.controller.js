@@ -34,7 +34,7 @@
 
 
     // download the data into a local object
-    register.data = $firebaseObject(ref);
+    register.data = $firebaseObject(fRef);
     console.log(register.data);
 
 

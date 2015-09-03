@@ -6,10 +6,10 @@
     .controller('ListController', ListController);
 
   /** @ngInject */
-  function ListController( sightingsDataFactory ) {
+  function ListController( sightingFactory ) {
     var list = this;
 
-  list.sightingsData = sightingsDataFactory;
+  list.sightingArr = sightingFactory.sightingArr();
 
   console.log(list.sigtingsData);
 
