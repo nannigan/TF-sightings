@@ -9,22 +9,25 @@
   function MainController($firebaseArray, sightingFactory,FIREBASE_URL_SIGHTINGS) {
     var main = this;
 
-    main.message = 'hello worldly folk!';
 
 
 
 
-  main.sightingArray = sightingFactory.sightingArr();
-   // main.sightingsData = main.sightingsData.slice(0,2);
+
+  //main.sightingArray = sightingFactory.sightingArr();
+   // main.sightingsData = main.sightingsData.slice(0,2);//
 
    var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
+
     // create a query for the most recent 5 messages on the server
     var query = ref.orderByChild("timestamp").limitToLast(5);
+    //var query = ref.indexOn("timestamp").limitToLast(5);
     // the $firebaseArray service properly handles database queries as well
     main.filteredsightings = $firebaseArray(query);
-
+    main.sightingArr = main.filteredsightings
 
     console.log(main.filteredsightings);
+    console.log(main.sightingArr)
 
 
     //$timeout, webDevTec vm.awesomeThings = [];
