@@ -10,8 +10,6 @@
     var my = this;
     var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
     my.sightingArr = $firebaseArray(ref);
-   // my.mine = true;
-
     console.log(my.mine);
 
   }

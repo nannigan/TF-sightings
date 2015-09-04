@@ -3,26 +3,26 @@
 
   angular
   .module('sightings')
-  .directive('main', main);
+  .directive('login', login);
 
 
 
 
   /** @ngInject */
-  function main() {
+  function login() {
 
 
     var directive = {
           restrict: 'A',
-          templateUrl: 'app/main/main.template.html',
+          templateUrl: 'app/auth/login.template.html',
           scope: {
-            sightingArr: '=',
+            loggedin: '=',
 
 
             }
 
           };
-      return directive;
+  return directive;
 
   }
 
