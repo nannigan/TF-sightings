@@ -6,12 +6,16 @@
     .controller('ListController', ListController);
 
   /** @ngInject */
-  function ListController( sightingFactory ) {
+  function ListController($firebaseArray, sightingFactory, FIREBASE_URL_SIGHTINGS) {
     var list = this;
+    var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
 
-  list.sightingArr = sightingFactory.sightingArr();
+    list.sightingArr = $firebaseArray(ref);
 
-  console.log(list.sigtingsData);
+    console.log(list.sigtingsArr);
 
   }
 })();
+
+
+
