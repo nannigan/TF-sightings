@@ -1,0 +1,18 @@
+<div class="container" ng-controller="SightingController as sight">
+ <h3> My Sightings</h3>
+
+ <table class="table table-hover">
+
+  <caption>{{auth.user.name}}logged in user.name's Sightings</caption>
+
+  <tr>
+    <th>Critter</th> <th>When Seen</th><th>Where Seen</th><th>Photo Link</th></th><th>Details</th>
+  </tr>
+  <tbody>
+    <tr ng-repeat='item in sight.sightingArr'>
+      <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> {{item.where}}</td> <td> {{item.details}}</td><!--<td>  <a ui-sref="a-sighting/#">{{item.photo}}</a></td>  -->
+    </tr>
+  </tbody>
+</table>
+</div>
+

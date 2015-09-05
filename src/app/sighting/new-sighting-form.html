@@ -2,16 +2,26 @@
   <div class='row'>
     <div class='col-sm-10 col-sm-offset-1'>
       <!--   http://getbootstrap.com/components/#input-groups -->
- <!--   <input ng-model="sight.name" ng-change="sight.$save()" type="text" /> -->
+      <!--   <input ng-model="sight.name" ng-change="sight.$save()" type="text" /> -->
 
       <form ng-submit="sight.addSighting()">
         <div class="form-group">
-          <label for="when-seen" class="col-sm-4 control-label">When </label>
-          <div class="col-sm-8">
-            <input type="text" name="when" value="when" ng-model="sight.when" placeholder="when did you see it?">
+
+
+          <label for="when-seen" class="col-sm-4 control-label">When Did you see it?</label>
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+              Click here to  pick the date and time of your sighting!
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <datetimepicker ng-required="true" data-ng-model="data.date"
+              data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle', minView:'hour' }" max-date="sight.today"></datetimepicker>
+            </ul>
           </div>
-        </div>
-          <div class="form-group">
+
+          <p>Selected Date: {{ data.date | date:'yyyy-MM-dd HH:mm' }}</p>
+
+           <!--<div class="form-group">
           <label for="user-id" class="col-sm-4 control-label">Your id</label>
           <div class="col-sm-8">
             <input type="text" id="user-id" value="user-id" ng-model="sight.id" placeholder="Your id">
@@ -22,20 +32,20 @@
           <div class="col-sm-8">
             <input type="text" name="user-name" value="user-name" ng-model="sight.name" placeholder="Your name">
           </div>
-        </div>
+        </div> -->
         <div class="form-group">
           <label for="critter" class="col-sm-4 control-label">What did you see</label>
           <div class="col-sm-8">
             <input type="text" name="critter" value="critter" ng-model="sight.critter" placeholder="Critter You Saw">
           </div>
         </div>
-        =<div class="form-group">
+        <div class="form-group">
           <label for="critter" class="col-sm-4 control-label">Where</label>
           <div class="col-sm-8">
             <input type="text" name="where" value="where" ng-model="sight.where" placeholder="where did you see it?">
           </div>
         </div>
-<!--         <div class="form-group">
+        <!-- <div class="form-group">
           <p>Images must be .png, .gif, or .jpeg and must be smaller than something.</p>
           <label for="critter-pic" class="col-sm-4 control-label">Did you get a picture?</label>
           <div class="col-sm-8">
@@ -43,14 +53,15 @@
             make angular check file format and size- or should that be part of the submit stack
           </div>
         </div>
-        <div class="form-group">
-          <label for="critter-pic" class="col-sm-4 control-label">Other details/description to share?</label>
-          <div class="col-sm-8">
-            <input type="textarea" name="details" value="details" accept='' placeholder='details'>
-          </div>
-        </div> -->
-        <button class="btn btn-default pull-right" type="submit">submit</button>
-      </form>
-    </div>
+      -->
+      <div class="form-group">
+        <label for="details" class="col-sm-4 control-label">Other details/description of interest?</label>
+        <div class="col-sm-8">
+          <input type="textarea" name="details" value="details" ng-model='sight.details' placeholder='details'>
+        </div>
+      </div>
+      <button class="btn btn-xs pull-right" type="submit">submit</button>
+    </form>
   </div>
+</div>
 </div>
