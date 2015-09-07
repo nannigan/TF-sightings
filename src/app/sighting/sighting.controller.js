@@ -11,15 +11,14 @@
     {
         var sight = this;
 
-        sight.today = new Date();
+        sight.today = Date.now();
+        console.log(sight.today);
         sight.sightingArr = sightingFactory.sightingArr();
 
         sight.addSighting = function()
         {
-
+            //console.log(sight.where);
             var stringDate = $scope.data.date.toString();
-
-            // sight.when =  Date.parse(stringDate);
 
             sight.sightingArr.$add(
             {
@@ -39,6 +38,7 @@
             sight.when = "";
             sight.details = "";
         }
+
 
     }
 

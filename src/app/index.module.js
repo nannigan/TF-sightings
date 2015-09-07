@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    angular.module('sightings', ['ui.router', 'firebase' , 'ui.bootstrap.datetimepicker'])
+    angular.module('sightings', ['ui.router', 'firebase' , 'ui.bootstrap.datetimepicker','ngMap'])
 
    .factory('fRef', fRef)
 
