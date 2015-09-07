@@ -6,17 +6,13 @@
     .controller('HomeController', HomeController);
 
   /** @ngInject */
-  function HomeController($firebaseArray, sightingFactory,FIREBASE_URL_SIGHTINGS) {
+  function HomeController($firebaseArray, FBRef) {
     var home = this;
 
-
-   var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
-
-
-    var query = ref.orderByChild("timestamp").limitToLast(5);
+    var query = FBRef.child('sightings').orderByChild("timestamp").limitToLast(5);
 
     home.filteredsightings = $firebaseArray(query);
-    home.sightingArr = home.filteredsightings
+    home.sightingArr = home.filteredsightings;
 
     console.log(home.filteredsightings);
 

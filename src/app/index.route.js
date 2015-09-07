@@ -1,13 +1,49 @@
+/* jshint asi:true */
 (function()
 {
   'use strict';
 
-  angular.module('sightings').config(routeConfig);
+  angular.module('sightings')
+      .config(routeConfig)
+      .constant('SECURED_STATES', {})
+      .run(routeChecker)
+
+  function routeChecker($rootScope, $location, Auth, SECURED_STATES, loginPath) {
+      Auth.$onAuth(check)
+
+      $rootScope.$on('$routeChangeError', function(event, next, prev, err) {
+          if (err === 'AUTH_REQUIRED') {
+              $location.path(loginPath)
+          }
+      })
+
+      function check(user) {
+          if (!user && authRequired($location.path())) {
+              $location.path(loginPath)
+          }
+      }
+
+      function authRequired(path) {
+          return SECURED_STATES.hasOwnProperty(path)
+      }
+  }
 
   /** @ngInject */
 
-  function routeConfig($stateProvider, $urlRouterProvider)
+  function routeConfig($stateProvider, $urlRouterProvider, SECURED_STATES)
   {
+
+    $stateProvider.stateAuthenticated = function(name, state) {
+        state.resolve = state.resolve || {}
+        state.resolve.user = function(Auth) {
+            return Auth.$requireAuth()
+        }
+        $stateProvider.state(name, state)
+        SECURED_STATES[name] = true
+        return $stateProvider
+    }
+
+
     $stateProvider.state('home',
     {
       url: '/',
@@ -19,17 +55,16 @@
       url: '/log-in',
       templateUrl: 'app/auth/log-in.html',
       controller: 'LoginController',
-      controllerAs: 'login'
     })
 
-    .state('sign-up',
-    {
-      url: '/sign-up',
-      templateUrl: 'app/auth/register.html',
-      controller: 'RegisterController',
-      controllerAs: 'register'
-
-    })
+    // .state('sign-up',
+    // {
+    //   url: '/sign-up',
+    //   templateUrl: 'app/auth/register.html',
+    //   controller: 'RegisterController',
+    //   controllerAs: 'register'
+    //
+    // })
 
     .state('our-list',
     {
@@ -53,15 +88,21 @@
       templateUrl: 'app/sighting/new-sighting-form.html',
       controller: 'SightingController',
       controllerAs: 'sight',
-      views:{
-        '': { templateUrl: 'app/sighting/new-sighting-form.html'},
-        'map@new-sighting' : {
-          templateUrl: 'app/components/map/map.template.html',
-          controller: 'MyMapController',
-          controllerAs: 'mymap'
-        }
+      // views:{
+      //   '': { templateUrl: 'app/sighting/new-sighting-form.html'},
+      //   'map@new-sighting' : {
+      //     templateUrl: 'app/components/map/map.template.html',
+      //     controller: 'MyMapController',
+      //     controllerAs: 'mymap'
+      //   }
+      //
+      // }
+    })
 
-      }
+    .stateAuthenticated('account', {
+        url: '/account',
+        templateUrl: 'app/auth/account.html',
+        controller: 'AccountController'
     })
 
 
