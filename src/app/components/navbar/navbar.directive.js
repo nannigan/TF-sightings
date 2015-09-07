@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($firebaseAuth, fRef) {
+    function NavbarController($firebaseAuth) {
       // var vm = this;
       // vm.unauth = function()
       //   {

@@ -1,30 +1,13 @@
-(function(){
+(function() {
     'use strict';
 
-    angular.module('sightings').factory('sightingFactory', sightingFactory);
+    angular.module('sightings').factory('Sightings', Sightings);
 
     /** @ngInject */
 
-    function sightingFactory ($firebaseArray,FIREBASE_URL_SIGHTINGS)
-    {
-      var ref = new Firebase(FIREBASE_URL_SIGHTINGS);
-      return {
+    function Sightings($firebaseArray, FBRef) {
+        var ref = FBRef.child('sightings');
 
-        sightingArr: function(){
-           return $firebaseArray(ref);
-          },
-
-
-      };
-
-
-
-
-
-      }
-
-    })();
-
-
-
-
+        return $firebaseArray(ref);
+    }
+})();
