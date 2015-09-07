@@ -4,8 +4,8 @@
 
     angular.module('firebase.ref', ['firebase', 'firebase.config'])
 
-        .factory('FBRef', function($window, FIREBASE_URL) {
-            return new $window.Firebase(FIREBASE_URL)
+        .factory('FBRef', function($window, FB_URL) {
+            return new $window.Firebase(FB_URL)
         })
 
 }())

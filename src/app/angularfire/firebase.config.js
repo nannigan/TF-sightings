@@ -4,9 +4,9 @@
 
     angular.module('firebase.config', [])
 
-    .constant('FIREBASE_URL', 'https://tfsighting.firebaseio.com')
-        .constant('FIREBASE_LOGIN_PROVIDERS', ['password'])
-        .constant('loginRedirectPath', '/login')
+    .constant('FB_URL', 'https://tfsighting.firebaseio.com')
+        .constant('FB_LOGIN_PROVIDERS', ['password'])
+        .constant('loginPath', '/login')
 
 
 }())
