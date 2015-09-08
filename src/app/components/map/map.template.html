@@ -2,14 +2,14 @@
   <div class="col-sm-12" > <p>Drag red marker in the map drop at the location of your sighting. Zoom in if needed to show specific spot.
     Click on the red marker to set the location of your sighting</p>. <!-- <input ng-click="hideMarkers()" value="Hide Markers" type="button"> <input ng-click="showMarkers()" value="Show All Markers" type="button"> <input ng-click="deleteMarkers()" value="Delete Markers" type="button"> -->
   </div>
-  <map center="{{mymap.location}}" zoom="13">
+  <map center="" zoom="13">
   <!-- <custom-control id="home" position="TOP_RIGHT" index="1" > -->
   <!-- <div style="background-color: black; color:#fff;cursor:pointer">Custom control</div>
   </custom-control> -->
       <marker
       position= "current"
       centered="true"
-      on-click="mymap.dropPin()"
+      on-click="sight.setPinLatLng()"
       draggable="true"
       ></marker>
   </map>

@@ -6,8 +6,19 @@
     /** @ngInject */
 
     function Sightings($firebaseArray, FBRef) {
-        var ref = FBRef.child('sightings');
+      //return  {
+       // all: function(){
+           var ref = FBRef.child('sightings');
 
         return $firebaseArray(ref);
+      // },
+      // currentUser: function(){
+      //      var ref = FBRef.child('sightings');
+
+      //   return $firebaseArray(ref);
+      // },
+
+      // }
+
     }
 })();

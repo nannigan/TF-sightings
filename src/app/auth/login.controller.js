@@ -33,7 +33,7 @@
                                 email: email,
                                 password: pass
                             }, {
-                                rememberMe: true
+                                //rememberMe: true
                             });
                         })
                         .then(createProfile)
@@ -71,7 +71,7 @@
             }
 
             function redirect() {
-                $location.path('/account')
+                $location.path('/')
             }
 
             function showError(err) {

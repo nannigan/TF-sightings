@@ -7,26 +7,52 @@
     // https://sightingsinthehood.firebaseio.com/
     /** @ngInject */
 
-    function SightingController($scope, Sightings)
+    function SightingController($scope, Sightings, Auth)
     {
         var sight = this;
 
-        sight.today = Date.now();
-        console.log(sight.today);
+
+
+
         sight.sightingArr = Sightings;
+
+        sight.setPinLatLng = function(evt)
+        {
+            var ll = evt.latLng;
+
+            sight.where = {
+                lat: ll.lat(),
+                lng: ll.lng()
+            };
+            console.log(sight.where.lat);
+            console.log(sight.where.lng);
+        };
+
+        // $scope.authObj = Auth.authObj;
+        // var authData = $scope.authObj.$getAuth();
+        // sight.id = authData.uid;
+        // console.log(authData);
+
+
 
         sight.addSighting = function()
         {
-            //console.log(sight.where);
-            // var stringDate = $scope.data.date.toString();
+            console.log(sight.where);
+
+            var stringDate = $scope.data.date.toString();
 
             Sightings.$add(
             {
-                // user: {id: sight.id,
-                //  name: sight.name},
+                user: {
+                    id: sight.id,
+                    name: sight.name
+                },
                 critter: sight.critter,
-                // where: sight.where,
-                // when: Date.parse(stringDate),
+                where: {
+                    lat: sight.where.lat,
+                    lng: sight.where.lng
+                },
+                when: Date.parse(stringDate),
                 details: sight.details || null,
                 timestamp: Firebase.ServerValue.TIMESTAMP
             });
