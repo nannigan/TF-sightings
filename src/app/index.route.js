@@ -104,7 +104,8 @@
         // $requireAuth returns a promise so the resolve waits for it to complete
         // If the promise is rejected, it will throw a $stateChangeError (see above)
                     return Auth.$requireAuth();
-                  }},
+                  }
+               },
             views: {
                 '': {
                     templateUrl: 'app/sighting/new-sighting-form.html'

@@ -3,6 +3,8 @@
     <div class='col-sm-10 col-sm-offset-1'>
       <!--   http://getbootstrap.com/components/#input-groups -->
       <!--   <input ng-model="sight.name" ng-change="sight.$save()" type="text" /> -->
+
+     <button ng-click="console.log('clicky')"> click me</button>
       <form name='addSightingForm' ng-submit="sight.addSighting()">
         <p class="form-group">
           <div class="col-sm-8">
@@ -25,7 +27,7 @@
         </p>
         <hr>
 
-            <input type="hidden" id="uid" value="uid" ng-model="sight.uid" placeholder="Your id">
+           <!--  <input type="hidden" id="uid" value="uid" ng-model="sight.uid" placeholder="Your id"> -->
 
         <!--<p class="form-group">
           <label for="user-name" class="col-sm-6 control-label">Your name</label>
@@ -62,7 +64,7 @@
             <input type="textarea" name="details" value="details" ng-model='sight.details' placeholder='details'>
           </div>
         </div> -->
-        <button class="btn btn-xs pull-right" type="submit">submit</button>
+        <button  class="btn btn-xs pull-right" type='submit' >submit</button>
       </form>
     </div>
   </div>
