@@ -6,7 +6,7 @@
     // https://sightingsinthehood.firebaseio.com/
     /** @ngInject */
 
-    function SightingController($scope, Sightings)
+    function SightingController($scope, Sightings, user, Users, $timeout)
     {
         var sight = this;
 
@@ -14,6 +14,17 @@
 
 
         sight.sightingArr = Sightings;
+        sight.usersArr = Users;
+        console.log (sight.usersArr);
+
+
+
+// }
+
+
+
+
+        //http://stackoverflow.com/questions/25859514/how-to-get-current-user-on-firebase
 
         sight.setPinLatLng = function(evt)
         {
@@ -26,45 +37,50 @@
             console.log(sight.where.lat);
             console.log(sight.where.lng);
         };
-//, Auth
-        // $scope.authObj = Auth.authObj;
-        // var authData = $scope.authObj.$getAuth();
-        // sight.id = authData.uid;
-        // console.log(authData);
-        sight.logme = function(){
-          console.log('clicky');
-        };
+
+
+
+           sight.userid = user.uid;
+           //timeout to trigger $apply without running into digest is already running error
+$timeout(
+  function(){
+     sight.user = Users.$getRecord(user.uid);
+
+             console.log(sight.user.name);
+           }, 1000);
+
+
 
 
         sight.addSighting = function()
         {
-            console.log('clicky');
 
-        //     var stringDate = $scope.data.date.toString();
 
-        //     Sightings.$add(
-        //     {
-        //         user: {
-        //             id: sight.id,
-        //             name: sight.name
-        //         },
-        //         critter: sight.critter,
-        //         where: {
-        //             lat: sight.where.lat,
-        //             lng: sight.where.lng
-        //         },
-        //         when: Date.parse(stringDate),
-        //         details: sight.details || null,
-        //         timestamp: Firebase.ServerValue.TIMESTAMP
-        //     });
-        //     console.log('saved')
-        //     // sight.id = "";
-        //     // sight.user = "";
-        //     // sight.name = "";
-        //     sight.critter = "";
-        //     sight.where = "";
-        //     sight.when = "";
-        //     sight.details = "";
+            var stringDate = $scope.data.date.toString();
+
+
+            Sightings.$add(
+
+            {
+                name: sight.user.name,
+                userid: sight.userid,
+                critter: sight.critter,
+                where: {
+                    lat: sight.where.lat,
+                    lng: sight.where.lng
+                },
+                when: Date.parse(stringDate),
+                details: sight.details || null,
+                timestamp: Firebase.ServerValue.TIMESTAMP
+            });
+            console.log('saved');
+            // sight.id = "";
+            // sight.user = "";
+            // sight.name = "";
+            sight.critter = "";
+            sight.where = "";
+            sight.when = "";
+            sight.details = "";
         };
 
 

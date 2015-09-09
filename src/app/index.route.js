@@ -50,13 +50,16 @@
         }
 
 
-        $stateProvider.state('home',
+        $stateProvider
+        .state('home',
         {
             url: '/',
             templateUrl: 'app/home/home.html',
             controller: 'HomeController',
             controllerAs: 'home'
-        }).state('log-in',
+
+        })
+        .state('log-in',
         {
             url: '/log-in',
             templateUrl: 'app/auth/log-in.html',
@@ -85,38 +88,17 @@
             url: '/my-list',
             templateUrl: 'app/sighting/my-sightings-list.html',
             controller: 'SightingController',
-            controllerAs: 'my',
-            resolve: { currentAuth: function(Auth) {
-        // $requireAuth returns a promise so the resolve waits for it to complete
-        // If the promise is rejected, it will throw a $stateChangeError (see above)
+            controllerAs: 'my'
 
-                    return Auth.$requireAuth();
-                  }}
         })
 
-        .state('new-sighting',
+        .stateAuthenticated('new-sighting',
         {
             url: '/new-sighting',
             templateUrl: 'app/sighting/new-sighting-form.html',
             controller: 'SightingController',
-            controllerAs: 'sight',
-            resolve: { currentAuth: function(Auth) {
-        // $requireAuth returns a promise so the resolve waits for it to complete
-        // If the promise is rejected, it will throw a $stateChangeError (see above)
-                    return Auth.$requireAuth();
-                  }
-               },
-            views: {
-                '': {
-                    templateUrl: 'app/sighting/new-sighting-form.html'
-                },
-                'map@new-sighting': {
-                    templateUrl: 'app/components/map/map.template.html',
-                    controller: 'SightingController',
-                    controllerAs: 'sight'
-                }
+            controllerAs: 'sight'
 
-            }
         })
 
         .stateAuthenticated('account',

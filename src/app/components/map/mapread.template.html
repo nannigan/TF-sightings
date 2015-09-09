@@ -1,0 +1,10 @@
+<!-- <input ng-click="hideMarkers()" value="Hide Markers" type="button"> <input ng-click="showMarkers()" value="Show All Markers" type="button"> <input ng-click="deleteMarkers()" value="Delete Markers" type="button"> -->
+
+  <map center="current" zoom="13" positions="home.testArray">
+  <!-- <custom-control id="home" position="TOP_RIGHT" index="1" > -->
+  <!-- <div style="background-color: black; color:#fff;cursor:pointer">Custom control</div>
+  </custom-control> -->
+<marker ng-repeat="pos in positions" position="{{pos.where.lat}}, {{pos.where.lng}}"></marker>
+  </map>
+  <!-- https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/docs/marker.html http://ngmap.github.io/drawings.html#/marker-simple#marker-simple -->
+  <!-- TODO make map multi-device friendly https://developers.google.com/maps/documentation/javascript/basics -->

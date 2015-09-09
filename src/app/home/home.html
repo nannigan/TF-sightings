@@ -1,35 +1,36 @@
 <div class="container-fluid">
   <!--  now on index for all pages <div>
     <acme-navbar creationDate="home.creationDate" />
-  </div> -->
-  <div class="jumbotron">
-    <h1>Share your sightings!</h1>
-    <p class="lead">
-      Here's how it works<br>
-      {{home.message}}
-
-    </p>
-
-  </div>
-  <div class="col-sm-10 " >
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Our Latest Neighborhood Sightings</h3>
+    </div> -->
+    <div class="jumbotron">
+      <h1>Share your sightings!</h1>
+      <p class="lead">
+        Here's how it works<br>
+        {{home.message}}
+      </p>
+    </div>
+    <div class="col-sm-12 " >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Our Latest Neighborhood Sightings</h3>
+        </div>
+        <div class="panel-body">
+          <div ui-view="map">
+            <map center="current" zoom="13" positions="home.sightingArr">
+            <marker ng-repeat="pos in positions" position="{{pos.where.lat}}, {{pos.where.lng}}"></marker>
+            </map>
+          </div>
+          <table class="table table-hover">
+            <tr>
+              <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
+            </tr>
+            <tbody>
+              <tr ng-repeat='item in home.sightingArr'>
+                <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> {{item.where}}</td><td> {{item.details}}</td><td> {{item.user.name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="panel-body">
-        <table class="table table-hover">
-
-         <tr>
-          <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
-        </tr>
-        <tbody>
-          <tr ng-repeat='item in home.sightingArr'>
-            <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> {{item.where}}</td><td> {{item.details}}</td><td> {{item.user.name}}</td>
-          </tr>
-        </tbody>
-      </table>
-
     </div>
   </div>
-</div>
-</div>
