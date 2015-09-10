@@ -16,22 +16,33 @@
         </div>
         <div class="panel-body">
           <div ui-view="map">
-            <map center="current" zoom="13" positions="home.sightingArr">
-            <marker ng-repeat="pos in positions" position="{{pos.where.lat}}, {{pos.where.lng}}"></marker>
-            </map>
-          </div>
-          <button ng-click="home.byName()">sort by user name</button>
-          <table class="table table-hover">
-            <tr>
-              <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
-            </tr>
-            <tbody>
-              <tr ng-repeat='item in home.sightingArr'>
-                <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td><td> <!-- {{item.userid}} --></td><td> {{item.name}}</td>
+            <map center="current" zoom="11" >
+            <marker ng-repeat="pos in home.sightingArr" id="pos.timestamp" position="{{pos.where.lat}}, {{pos.where.lng}}" on-click="showInfoWindow(event, 'bar')">
+            </marker>
+            <info-window id="bar" visible-on-marker="pos.timestamp">
+            <div ng-non-bindable="" ng-cloak>
+              <div id="siteNotice"></div>
+              <h1 id="firstHeading" class="firstHeading">{{pos.critter}}</h1>
+              <div id="bodyContent"> <p>{{pos.critter}} seen. </p> <p> <a ui-sref="/recordid">Sighting page </a> </p> </div> </div> </info-window>
+              </map>
+            </div>
+
+
+
+
+
+            <button ng-click="home.byName()">sort by user name</button>
+            <table class="table table-hover">
+              <tr>
+                <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
               </tr>
-            </tbody>
-          </table>
+              <tbody>
+                <tr ng-repeat='item in home.sightingArr'>
+                  <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td><td> <!-- {{item.userid}} --></td><td> {{item.name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
-  </div>

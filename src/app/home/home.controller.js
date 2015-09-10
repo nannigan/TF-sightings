@@ -31,13 +31,13 @@
 
 
 
-     home.map = ($("map"));
-     console.log(home.map.children('marker'))
-     home.showMarkers = function() {
-      for (var key in home.map.markers)
-        { home.map.markers[key].setMap(home.map); };
-    };
-    home.showMarkers();
+    //  home.map = ($("map"));
+    //  console.log(home.map.children('marker'))
+    //  home.showMarkers = function() {
+    //   for (var key in home.map.markers)
+    //     { home.map.markers[key].setMap(home.map); };
+    // };
+    // home.showMarkers();
 
     // home.positions = home.testArray;
 
