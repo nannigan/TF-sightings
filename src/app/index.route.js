@@ -87,7 +87,7 @@
         {
             url: '/my-list',
             templateUrl: 'app/sighting/my-sightings-list.html',
-            controller: 'SightingLoggedInController',
+            controller: 'SightingMyController',
             controllerAs: 'sight'
 
         })
@@ -96,7 +96,7 @@
         {
             url: '/new-sighting',
             templateUrl: 'app/sighting/new-sighting-form.html',
-            controller: 'SightingLoggedInController',
+            controller: 'SightingLogNewController',
             controllerAs: 'sight'
 
         })

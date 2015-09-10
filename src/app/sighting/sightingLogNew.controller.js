@@ -1,12 +1,12 @@
 (function() {
     'use strict';
 
-    angular.module('sightings').controller('SightingLoggedInController', SightingLoggedInController);
+    angular.module('sightings').controller('SightingLogNewController', SightingLogNewController);
     // https://www.firebase.com/docs/web/libraries/angular/guide/synchronized-arrays.html
     // https://sightingsinthehood.firebaseio.com/
     /** @ngInject */
 
-    function SightingLoggedInController($scope, Sightings, user, Users, $timeout)
+    function SightingLogNewController($scope, Sightings, user, Users, $timeout)
     {
         var sight = this;
 

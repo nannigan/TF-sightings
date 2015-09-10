@@ -1,22 +1,21 @@
-// (function() {
-//     'use strict';
+(function() {
+    'use strict';
 
-//     angular.module('sightings')
-//     .filter('sortByUser',sortByUser)
-
-
-//     /** @ngInject */
+    angular.module('sightings')
+    .filter('match',match)
 
 
-//     function geocoder($firebaseArray, FBRef) {
-//       return function(){
-//   var namequery = FBRef.child('sightings').orderByChild("name");
+    /** @ngInject */
 
-//     return namequery;
-// };
 
-//     }
+function match($firebaseArray, FBRef, user) {
+  return FBRef.child('sightings').userid;
 
-//     //function CurrentUser(Users)
 
-// })();
+};
+
+
+
+    //function CurrentUser(Users)
+
+})();

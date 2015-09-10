@@ -8,10 +8,7 @@
     function SightingController($scope, Sightings)
     {
         var sight = this;
-        sight.sightingArr = Sightings;
-        console.log(Sightings);
-
-
+        sight.sightingArr = Sightings.allsightings();
 
     }
 
