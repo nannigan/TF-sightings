@@ -20,13 +20,14 @@
             <marker ng-repeat="pos in positions" position="{{pos.where.lat}}, {{pos.where.lng}}"></marker>
             </map>
           </div>
+          <button ng-click="home.byName()">sort by user name</button>
           <table class="table table-hover">
             <tr>
               <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
             </tr>
             <tbody>
               <tr ng-repeat='item in home.sightingArr'>
-                <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> {{item.where}}</td><td> {{item.details}}</td><td> {{item.user.name}}</td>
+                <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td><td> <!-- {{item.userid}} --></td><td> {{item.name}}</td>
               </tr>
             </tbody>
           </table>

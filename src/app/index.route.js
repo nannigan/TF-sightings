@@ -83,12 +83,12 @@
             controllerAs: 'sight'
         })
 
-        .state('my-list',
+        .stateAuthenticated('my-list',
         {
             url: '/my-list',
             templateUrl: 'app/sighting/my-sightings-list.html',
-            controller: 'SightingController',
-            controllerAs: 'my'
+            controller: 'SightingLoggedInController',
+            controllerAs: 'sight'
 
         })
 
@@ -96,7 +96,7 @@
         {
             url: '/new-sighting',
             templateUrl: 'app/sighting/new-sighting-form.html',
-            controller: 'SightingController',
+            controller: 'SightingLoggedInController',
             controllerAs: 'sight'
 
         })
@@ -113,7 +113,7 @@
         {
             url: '/sighting',
             templateUrl: 'app/sighting/sighting.html',
-            controller: 'SightingController',
+            controller: 'SightingSingleController',
             controllerAs: 'sight'
         });
 

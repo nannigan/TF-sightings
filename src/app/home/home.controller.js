@@ -6,13 +6,29 @@
     .controller('HomeController', HomeController);
 
   /** @ngInject */
-  function HomeController($firebaseArray, FBRef, $scope, Sightings) {
+  function HomeController($firebaseArray, FBRef, $scope) {
     var home = this;
 
-    var query = FBRef.child('sightings').orderByChild("timestamp").limitToLast(5);
+    var query = FBRef.child('sightings').orderByChild("when").limitToLast(5);
+  //var query = FBRef.child('sightings').orderByChild("name").limitToLast(5);
+ // var query = FBRef.child('sightings').orderByChild("name");
+
 
     home.filteredsightings = $firebaseArray(query);
     home.sightingArr = home.filteredsightings;
+
+
+    home.byName = function(){
+      var query = FBRef.child('sightings').orderByChild("name");
+        home.filteredsightings = $firebaseArray(query);
+    home.sightingArr = home.filteredsightings;
+    return home.sightingArr;
+    };
+// var rec = list.$getRecord("foo"); record with $id === "foo" or null
+
+
+
+
 
 
      home.map = ($("map"));

@@ -14,6 +14,7 @@
         return $firebaseArray(ref);
 
     }
+
     function Users($firebaseArray, FBRef){
         var uref = FBRef.child('users');
         return $firebaseArray(uref);
