@@ -2,15 +2,14 @@
     'use strict';
 
     angular.module('sightings')
-    .filter('match',match)
+    .filter('firstLetterCap',firstLetterCap)
 
 
     /** @ngInject */
 
 
-function match($firebaseArray, FBRef, user) {
-  return FBRef.child('sightings').userid;
-
+function firstLetterCap(str) {
+  return str.charAt(0).toUpperCase()
 
 };
 

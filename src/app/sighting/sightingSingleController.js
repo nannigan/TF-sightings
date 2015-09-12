@@ -12,7 +12,19 @@
 
         sight.item = asight;
 
-        console.log(sight.item);
+        asight.$loaded().then(function () {
+
+          sight.data = {
+            critter: asight.critter,
+            name: asight.name,
+            when: asight.when,
+            where: asight.where
+           }
+ console.log(sight.data.critter);
+
+});
+
+
 
 
        }

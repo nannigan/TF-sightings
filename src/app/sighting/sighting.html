@@ -6,7 +6,7 @@
        <!--  housekeeping needed I know!!!!  -->
 
 
-      <!--  <h3 >{{sight.critter}} Seen</h3> -->
+       <h3 >{{sight.data.critter}} Seen</h3>
      </div>
      <div class="panel-body" >
 
@@ -17,19 +17,19 @@
 <div class='col-sm-4 col-sm-offset-2'>
 
   <div>
-  <!--  ng-repeat="item in sight.singleSighting" -->
+
     <p>
-           Critter: {{item.critter}}
+           Critter: {{sight.data.critter}}
            <br>
-           Where: {{item.where}} Map here
+           Where: {{sight.data.where}} Map here
            <br>
-           When: {{item.when}}
+           When: {{sight.data.when}}
            <br>
-           Details: {{item.details}}
+           Details: {{sight.data.details}}
            <br>
-           Observer: {{item.name}}
+           Observer: {{sight.data.name}}
           <br>
-           Id: {{item.$id}}
+
     </p>
 
 
