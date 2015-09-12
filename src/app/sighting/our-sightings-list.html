@@ -9,9 +9,12 @@
     </tr>
     <tbody>
       <tr ng-repeat='item in sight.sightingArr'>
-        <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td> <!-- <td> <a ui-sref="a-sighting/#">{{item.photo}}</a></td>--> <td> {{item.details}}</td>  <td> {{item.name}}</td>
+       <!--  ({critter: item.critter})  ng-click=''-->
+
+        <td><a ui-sref="sighting({critter: item.critter, id: item.$id})"> {{item.critter}} sighting</a></td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td> <!-- <td> <a ui-sref="a-sighting/#">{{item.photo}}</a></td>--> <td> {{item.details}}</td>  <td> {{item.name}}</td><td> {{item.$id}}</td>
       </tr>
     </tbody>
   </table>
 
 </div>
+

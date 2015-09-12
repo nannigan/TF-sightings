@@ -1,7 +1,8 @@
 (function() {
     'use strict';
 
-    angular.module('sightings').controller('SightingController', SightingController);
+    angular.module('sightings')
+    .controller('SightingController', SightingController);
   // controller for non Auth users
     /** @ngInject */
 
@@ -9,6 +10,11 @@
     {
         var sight = this;
         sight.sightingArr = Sightings.allsightings();
+
+    //     var goToPage = function(uniqueloc){
+
+    //       $state.goToPage('/sighting/'+ uniqueloc);
+    //     }
 
     }
 
