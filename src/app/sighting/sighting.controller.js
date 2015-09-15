@@ -11,10 +11,13 @@
         var sight = this;
         sight.sightingArr = Sightings.allsightings();
 
-    //     var goToPage = function(uniqueloc){
+        $scope.reverse = true;
+        $scope.order = function(predicate) {
+        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        $scope.predicate = predicate;
+      };
 
-    //       $state.goToPage('/sighting/'+ uniqueloc);
-    //     }
+
 
     }
 

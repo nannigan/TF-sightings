@@ -1,48 +1,40 @@
 <div class="container-fluid">
-  <!--  now on index for all pages <div>
-    <acme-navbar creationDate="home.creationDate" />
-    </div> -->
-    <div class="jumbotron">
-      <h1>Share your sightings!</h1>
+
+    <div class="col-sm-12">
+      <h1>Share wildlife sightings in with your neighbors</h1>
       <p class="lead">
-        Here's how it works<br>
-        {{home.message}}
+      <!-- Have you ever been curious  -->This site is for urban or urbanish folk to share wildlife sightings. Find out who your neighbors see lurking around your neighborhood, and share your own sightings. See if anyone else saw that unicorn in the dogpark, or just keep track of skunk wanderings in the 'hood. <br>
+
       </p>
     </div>
-    <div class="col-sm-12 " >
+    <div class="col-sm-12" >
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Our Latest Neighborhood Sightings</h3>
+          <h3 class="panel-title">The Latest Sightings in the Hood: click on the name of the critter for more info on that sighting.</h3>
         </div>
         <div class="panel-body">
-          <div ui-view="map">
+<div class="col-sm-5">
+  <div ui-view="map">
             <map center="current" zoom="11" >
-            <marker ng-repeat="pos in home.sightingArr" id="pos.timestamp" position="{{pos.where.lat}}, {{pos.where.lng}}" on-click="showInfoWindow(event, 'bar')">
+            <marker ng-repeat="pos in home.sightingArr" id="{{pos.timestamp}}" position="{{pos.where.lat}}, {{pos.where.lng}}" on-click="gotoCritter('{critter: item.critter, id: item.$id}')">
+              <!-- sadly cannot bind click to marker or haven't yet discovered how -->
             </marker>
-            <info-window id="bar" visible-on-marker="pos.timestamp">
-            <div ng-non-bindable="" ng-cloak>
-              <div id="siteNotice"></div>
-              <h1 id="firstHeading" class="firstHeading">{{pos.critter}}</h1>
-              <div id="bodyContent"> <p>{{pos.critter}} seen. </p> <p> <a ui-sref="/recordid">Sighting page </a> </p> </div> </div> </info-window>
-              </map>
-            </div>
-
-
-
-
-
-            <button ng-click="home.byName()">sort by user name</button>
-            <table class="table table-hover">
-              <tr>
-                <th>Critter</th> <th>When Seen</th><th>Where Seen</th><!-- <th>Photo Link</th> --></th><th>Details</th><th>Observer</th>
-              </tr>
-              <tbody>
-                <tr ng-repeat='item in home.sightingArr'>
-                  <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td><td> <!-- {{item.userid}} --></td><td> {{item.name}}</td>
-                </tr>
-              </tbody>
-            </table>
+            </map>
           </div>
+        </div>
+
+          <!-- ngmap doesn't support multiple info windows, multiple markers, but multiple info windows with ng-repeat does not work -->
+<div class='col-sm-7'>          <table class="table table-hover">
+            <tr>
+              <th> Critter</th> <th>When Seen</th><!-- <th>Where Seen</th> --><!-- <th>Photo Link</th> --></th><th>Details</th><!-- <th>Observer</th> -->
+            </tr>
+            <tbody>
+              <tr ng-repeat='item in home.sightingArr'>
+                <td> <a ui-sref="sighting({critter: item.critter, id: item.$id})">{{item.critter}}</a></td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <!-- <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td> --><td> {{item.details}}</td><!-- <td> {{item.name}}</td> -->
+              </tr>
+            </tbody>
+          </table></div>
         </div>
       </div>
     </div>
+  </div>

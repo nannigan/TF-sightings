@@ -17,12 +17,22 @@
           sight.data = {
             critter: asight.critter,
             name: asight.name,
+            email: asight.email,
             when: asight.when,
-            where: asight.where
-           }
- console.log(sight.data.critter);
+            where: asight.where,
+            details: asight.details
+           };
+
+            sight.lat = sight.data.where.lat;
+            sight.lng = sight.data.where.lng;
+            sight.wikilink =  "https://en.wikipedia.org/wiki/" + sight.data.critter;
+
+
+
 
 });
+
+
 
 
 

@@ -3,82 +3,63 @@
     <div class='col-sm-10 col-sm-offset-1'>
       <!--   http://getbootstrap.com/components/#input-groups -->
       <!--   <input ng-model="sight.name" ng-change="sight.$save()" type="text" /> -->
-
-
       <form name='addSightingForm' ng-submit="sight.addSighting()">
-        <p class="form-group">
+        <div class='row'>
           <div class="col-sm-8">
-            <label for="when-seen" class="col-sm-6 control-label">When did you see it?</label>
-            <!--  TODO fix back and forward month to have arrows -->
-            <div class="dropdown">
-              <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
-                Click here to  pick the date and time of your sighting!
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <datetimepicker ng-required="true" data-ng-model="data.date"
-                data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle', minView:'hour' }" max-date="sight.today"></datetimepicker>
-
-              </ul>
-            </div>
-            <p>Selected Date: {{ data.date | date:'yyyy-MM-dd HH:mm' }}</p>
-            <p ng-if="false">oops, you picked a future date! Unless you have a time machine, please try again. </p>
-
-          </div>
-        </p>
-        <hr>
-
-        <!--  <input type="hidden" id="uid" value="uid" ng-model="sight.uid" placeholder="Your id"> -->
-
-        <!--<p class="form-group">
-          <label for="user-name" class="col-sm-6 control-label">Your name</label>
-          <div class="col-sm-8">
-            <input type="text" name="user-name" value="user-name" ng-model="sight.name" placeholder="Your name">
-          </div>
-        </div> -->
-        <p class="form-group">
-          <div class="col-sm-8">
-            <label for="critter" class="col-sm-6 control-label">What did you see</label>
-            <input type="text" name="critter" value="critter" ng-model="sight.critter" placeholder="Critter You Saw">
-          </div>
-        </p>
-        <hr>
-        <p class="form-group">
-          <div class="col-sm-6">
-            <div ui-view="map">
-              <label for="where" class="col-sm-4 control-label">Where</label>
-              <div class="col-sm-12" > <p>Drag red marker in the map drop at the location of your sighting. Zoom in if needed to show specific spot.
-                Click on the red marker to set the location of your sighting</p>.
+            <p class="form-group">
+              <label for="when-seen" class="col-sm-6 control-label">When did you see it?</label>
+              <!--  TODO fix back and forward month to have arrows -->
+              <div class="dropdown">
+                <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+                  Click here to  pick the date and time of your sighting!
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <datetimepicker ng-required="true" data-ng-model="data.date"
+                  data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle', minView:'hour' }" max-date="sight.today"></datetimepicker>
+                </ul>
+                <p>Selected Date: {{ data.date | date:'yyyy-MM-dd HH:mm' }}</p>
+                <p ng-if="false">oops, you picked a future date! Unless you have a time machine, please try again. </p>
               </div>
+            </p>
+          </div>
+          <hr>
+          <div class="col-sm-8" >        <p class="form-group">
+            <label for="critter" class="control-label">What did you see</label>
+            <input type="text" name="critter" value="critter" ng-model="sight.critter" placeholder="Critter You Saw">
+          </p></div>
+          <hr>
+        </div>
+        <div class='row'>
+          <div class="col-sm-8"> <p class="form-group">
+            <div ui-view="map">
+              <label for="where" class="control-label">Where</label>
+              <p>Drag red marker in the map drop at the location of your sighting. Zoom in if needed to show specific spot.
+              Click on the red marker to set the location of your sighting</p>.
               <map center="" zoom="13">
-
-                <marker
-                position= "current"
-                centered="true"
-                on-click="sight.setPinLatLng()"
-                draggable="true"
-                ></marker>
+              <marker
+              position= "current"
+              centered="true"
+              on-click="sight.setPinLatLng()"
+              draggable="true"
+              ></marker>
               </map>
+            </p></div>
+          <hr></div>
+          <!-- <p class="form-group">
+            <p>Images must be .png, .gif, or .jpeg and must be smaller than something.</p>
+            <label for="critter-pic" class="col-sm-6 control-label">Did you get a picture?</label>
+            <div class="col-sm-8">
+              <input type="image" name="critter-pic" value="critter-pic" accept='' placeholder="upload pic!">
+              make angular check file format and size- or should that be part of the submit stack
             </div>
           </div>
-        </p>
-        <hr>
-        <!-- <p class="form-group">
-          <p>Images must be .png, .gif, or .jpeg and must be smaller than something.</p>
-          <label for="critter-pic" class="col-sm-6 control-label">Did you get a picture?</label>
-          <div class="col-sm-8">
-            <input type="image" name="critter-pic" value="critter-pic" accept='' placeholder="upload pic!">
-            make angular check file format and size- or should that be part of the submit stack
-          </div>
-        </div>
-      -->
-        <!--           <p class="form-group">
-          <label for="details" class="col-sm-6 control-label">Other details/description of interest?</label>
-          <div class="col-sm-8">
-            <input type="textarea" name="details" value="details" ng-model='sight.details' placeholder='details'>
-          </div>
-        </div> -->
-        <button  class="btn btn-xs pull-right" type='submit' >submit</button>
-      </form>
+          -->
+          <div class="col-sm-6">          <p class="form-group">
+            <label for="details" class="col-sm-6 control-label">Other details/description of interest?</label>
+            <textarea rows="8" cols="30" ng-model='sight.details'>Details, do tell!</textarea>
+          </p></div></div>
+          <button  class="btn btn-xs pull-right" type='submit' >submit</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>

@@ -6,11 +6,19 @@
   <caption ng-repeat='item in sight.namer'>{{item.name}}'s Sightings</caption>
 
   <tr>
-    <th>Critter</th> <th>When Seen</th><th>Where Seen</th><th>Photo Link</th></th><th>Details</th>
+      <tr>
+      <th>
+        <a href="" ng-click="order('critter')">Critter</a>
+        <span class="sortorder" ng-show="predicate === 'critter'" ng-class="{reverse:reverse}"></span>
+      </th>
+      <th> <a href="" ng-click="order('when')">When Seen</a>
+        <span class="sortorder" ng-show="predicate === 'when'" ng-class="{reverse:reverse}"></span></th>
+        <th>Where Seen</th><!-- <th>Photo Link</th> --><th>Details</th>
+    </tr>
   </tr>
   <tbody>
     <tr ng-repeat='item in sight.mysightingArr'>
-      <td> {{item.critter}}</td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td> <td> {{item.details}}</td><!--<td>  <a ui-sref="a-sighting/#">{{item.photo}}</a></td>  -->
+      <td> <a ui-sref="sighting({critter: item.critter, id: item.$id})">{{item.critter}}</a></td> <td> {{item.when | date:"MM/dd/yyyy 'at' h:mma" }}</td> <td> <reverse-geocode lat="{{item.where.lat}}" lng="{{item.where.lng}}"></reverse-geocode></td> <td> {{item.details}}</td><!--<td>  <a ui-sref="a-sighting/#">{{item.photo}}</a></td>  -->
     </tr>
   </tbody>
 </table>
