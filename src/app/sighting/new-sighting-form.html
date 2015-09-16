@@ -1,4 +1,36 @@
 <div class="container-fluid">
+<!--    <div class='row'>
+    <div class='col-sm-10 col-sm-offset-1'>
+      <h3>TEST file upload form shall eventually rise here</h3>
+
+        <form name="myForm">
+    <fieldset>
+      <legend>Upload on form submit</legend>
+      Username:
+      <input type="text" name="userName" ng-model="username" size="31" required>
+      <i ng-show="myForm.userName.$error.required">*required</i>
+      <br>Photo:
+      <input type="file" ngf-select ng-model="picFile" name="file"
+             accept="image/*" ngf-max-size="2MB" required>
+      <i ng-show="myForm.file.$error.required">*required</i><br>
+      <i ng-show="myForm.file.$error.maxSize">File too large
+          {{picFile.size / 1000000|number:1}}MB: max {{picFile.$errorParam}}</i>
+      <img ng-show="myForm.file.$valid" ngf-src="!picFile.$error && picFile"
+           class="thumb">
+      <br>
+      <button ng-disabled="!myForm.$valid"
+              ng-click="uploadPic(picFile)">Submit</button>
+      <span class="progress" ng-show="picFile.progress >= 0">
+        <div style="width:{{picFile.progress}}%"
+            ng-bind="picFile.progress + '%'"></div>
+      </span>
+      <span ng-show="picFile.result">Upload Successful</span>
+      <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+    </fieldset>
+    <br>
+  </form>
+    </div>
+  </div> -->
   <div class='row'>
     <div class='col-sm-10 col-sm-offset-1'>
       <!--   http://getbootstrap.com/components/#input-groups -->
@@ -15,17 +47,18 @@
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                   <datetimepicker ng-required="true" data-ng-model="data.date"
-                  data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle', minView:'hour' }" max-date="sight.today"></datetimepicker>
+                  data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle', minView:'hour' }" max-date="sight.now"></datetimepicker>
                 </ul>
-                <p>Selected Date: {{ data.date | date:'yyyy-MM-dd HH:mm' }}</p>
-                <p ng-if="false">oops, you picked a future date! Unless you have a time machine, please try again. </p>
+                <p ng-if="data.date != null">Selected Date: {{ data.date | date:'yyyy-MM-dd HH:mm' }}</p>
+
+                <p class='alert alert-danger'  ng-if="data.date >= sight.now"  role='alert'>oops, you picked a future date! Unless you have a time machine, please try again. </p>
               </div>
             </p>
           </div>
           <hr>
           <div class="col-sm-8" >        <p class="form-group">
             <label for="critter" class="control-label">What did you see</label>
-            <input type="text" name="critter" value="critter" ng-model="sight.critter" placeholder="Critter You Saw">
+            <input type="text" name="critter" value="critter" ng-model="sight.critter" placeholder="Critter You Saw" ng-required="true">
           </p></div>
           <hr>
         </div>
@@ -34,7 +67,7 @@
             <div ui-view="map">
               <label for="where" class="control-label">Where</label>
               <p>Drag red marker in the map drop at the location of your sighting. Zoom in if needed to show specific spot.
-              Click on the red marker to set the location of your sighting</p>.
+              Click on the red marker to set the location of your sighting. You will get a sucess message. <span class='alert alert-success' ng-if='sight.thanks'>Thanks! the location of your sighting has been set.</span></p>
               <map center="" zoom="13">
               <marker
               position= "current"

@@ -3,6 +3,48 @@
 // bower:scss
 // endbower
 
+h1,h2,h3,h4,h5{
+  color:#13a0b8;
+}
+.lead{
+  color: #9eb1af;
+}
+.jumbotron {
+    padding: 60px;
+    margin-bottom: 30px;
+    background-color: #20b081;
+    border-radius: 6px;
+    text-align: center;
+
+}
+.navbar{
+   border-radius: 1px;
+}
+
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: none;
+    border-bottom: 4px dotted #fff;
+
+}
+
+.navbar ul li a {
+    color: white;
+    position: relative;
+    display: block;
+    padding: 15px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+// little arrows indicate sort order of trs
+  .sortorder:after {
+    content: '\25b2';
+  }
+  .sortorder.reverse:after {
+    content: '\25bc';
+  }
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
